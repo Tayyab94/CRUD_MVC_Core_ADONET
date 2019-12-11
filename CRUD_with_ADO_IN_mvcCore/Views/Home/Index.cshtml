@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Employee>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome List of Employees</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <table class="table table-active">
+        <thead>
+            <tr>
+                <th>Sr.No</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Department</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.sr_No</td>
+                <td>@item.Emp_name</td>
+                <td>@item.City</td>
+                <td>@item.Country</td>
+                <td>@item.Department</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.sr_No">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.sr_No">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+        </table>
+    </div>
+</div>
